@@ -3,7 +3,6 @@ import './App.css';
 import heroBg from './assets/img/home/bg.jpg';
 import logo from './assets/img/home/logo.png';
 import playingClassroom from './assets/img/home/playing-classroom-home.jpg';
-import whatsapp from "./assets/img/home/wpp.png";
 
 const services = [
   {
