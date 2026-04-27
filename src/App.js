@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import heroBg from './assets/img/home/bg.jpg';
 import logo from './assets/img/home/logo.png';
+import playingClassroom from './assets/img/home/playing-classroom-home.jpg';
 
 const services = [
   {
@@ -43,11 +44,11 @@ const stats = [
   { number: '100%', label: 'Ambiente seguro', color: '#FF6B35' },
 ];
 
-const aboutServices = [
-  'Estancia infantil',
-  'Apoyo academico',
-  'Clases de ingles',
-  'Reforzamiento pedagogico',
+const aboutBenefits = [
+  'Autoconfianza y autoestima.',
+  'Habilidades de comunicacion efectiva.',
+  'Empatia y compasion hacia los demas.',
+  'Valores eticos y responsabilidad.',
 ];
 
 const contactItems = [
@@ -143,48 +144,43 @@ function App() {
       </div>
 
       <section id="nosotros" className="about">
-        <div className="about-visual">
-          <div className="about-cards-grid">
-            <article className="about-card">
-              <span>MS</span>
-              <h3>Nuestra Mision</h3>
-              <p>Contribuir al desarrollo integral del nino dentro de un entorno seguro y estimulante.</p>
-            </article>
-            <article className="about-card">
-              <span>VS</span>
-              <h3>Nuestra Vision</h3>
-              <p>Ser la guarderia de referencia en innovacion educativa y desarrollo infantil.</p>
-            </article>
-            <article className="about-card">
-              <span>MT</span>
-              <h3>Metodologia</h3>
-              <p>Aprendizaje basado en el juego, movimiento y experiencias significativas.</p>
-            </article>
-            <article className="about-card">
-              <span>VL</span>
-              <h3>Valores</h3>
-              <p>Amor, respeto, creatividad y compromiso con cada familia.</p>
-            </article>
-          </div>
+        <div className="about-doodles" aria-hidden="true">
+          <span className="doodle doodle-note">Aa</span>
+          <span className="doodle doodle-apple" />
+          <span className="doodle doodle-pencil" />
+          <span className="doodle doodle-star">123</span>
+          <span className="doodle doodle-rocket" />
+          <span className="doodle doodle-blocks">ABC</span>
+          <span className="doodle doodle-train" />
+        </div>
+
+        <div className="about-visual story-gallery">
+          <figure className="photo-frame photo-frame-primary">
+            <img src={playingClassroom} alt="Ninos jugando con material didactico" />
+          </figure>
+          <figure className="photo-frame photo-frame-secondary">
+            <img src={heroBg} alt="Nino explorando juguetes en estancia infantil" />
+          </figure>
         </div>
 
         <div className="about-content">
           <div className="section-label">Quienes somos?</div>
-          <h2 className="section-title">Un espacio donde los ninos florecen</h2>
+          <h2 className="section-title">Nos esforzamos por crear un ambiente seguro y amoroso</h2>
           <p className="section-desc">
-            Somos un centro que contribuye al desarrollo integral del nino dentro de un
-            entorno seguro a traves de programas innovadores, basados en el juego y
-            movimiento, alcanzando aprendizajes significativos.
+            Somos un centro que contribuye en el desarrollo integral del nino dentro de
+            un entorno seguro a traves de programas innovadores, basados en el juego y
+            movimiento alcanzando aprendizajes significativos.
           </p>
           <p className="section-desc">
-            Acompanamos a cada pequeno con actividades academicas, creativas y
-            socioemocionales para que explore, piense y cree con confianza.
+            Cada actividad esta pensada para que los ninos se sientan valorados,
+            respetados y motivados a descubrir el mundo con alegria.
           </p>
-          <div className="about-service-tags" aria-label="Programas principales">
-            {aboutServices.map((service) => (
-              <span key={service}>{service}</span>
+          <ul className="about-benefits">
+            {aboutBenefits.map((benefit) => (
+              <li key={benefit}>{benefit}</li>
             ))}
-          </div>
+          </ul>
+          <a className="btn btn-green" href="#servicios">Ver servicios</a>
         </div>
       </section>
 

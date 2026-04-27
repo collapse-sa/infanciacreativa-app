@@ -605,6 +605,183 @@ a {
   padding: 100px 5vw;
 }
 
+.about {
+  background: var(--white);
+  min-height: 720px;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-visual,
+.about-content {
+  position: relative;
+  z-index: 2;
+}
+
+.story-gallery {
+  min-height: 520px;
+}
+
+.photo-frame {
+  background: white;
+  border: 10px solid white;
+  border-radius: 10px;
+  box-shadow: 0 16px 34px rgba(30, 27, 46, 0.16);
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.photo-frame img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.photo-frame-primary {
+  height: 250px;
+  left: 16%;
+  top: 42px;
+  transform: rotate(-1deg);
+  width: 360px;
+}
+
+.photo-frame-secondary {
+  height: 390px;
+  left: 45%;
+  top: 190px;
+  transform: rotate(1.5deg);
+  width: 345px;
+}
+
+.about-doodles {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.doodle {
+  position: absolute;
+}
+
+.doodle-note {
+  color: var(--blue);
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.35rem;
+  font-weight: 800;
+  left: 2.8%;
+  top: 70px;
+  transform: rotate(10deg);
+}
+
+.doodle-apple {
+  background: #ff665c;
+  border: 3px solid var(--dark);
+  border-radius: 48% 48% 54% 54%;
+  height: 46px;
+  left: 3.2%;
+  top: 160px;
+  transform: rotate(-8deg);
+  width: 46px;
+}
+
+.doodle-apple::before {
+  background: #5abf61;
+  border: 2px solid var(--dark);
+  border-radius: 50% 0 50% 0;
+  content: '';
+  height: 20px;
+  position: absolute;
+  right: -7px;
+  top: -15px;
+  width: 24px;
+}
+
+.doodle-pencil {
+  background: linear-gradient(90deg, var(--yellow) 0 55%, var(--blue) 55% 100%);
+  border: 3px solid var(--dark);
+  border-radius: 16px;
+  height: 24px;
+  left: 1.5%;
+  top: 292px;
+  transform: rotate(-18deg);
+  width: 120px;
+}
+
+.doodle-star {
+  color: var(--orange);
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.55rem;
+  font-weight: 800;
+  left: 13%;
+  top: 438px;
+  transform: rotate(-11deg);
+}
+
+.doodle-rocket {
+  background: var(--yellow);
+  border: 3px solid var(--dark);
+  border-radius: 50% 50% 16px 16px;
+  height: 74px;
+  right: 4%;
+  top: 120px;
+  transform: rotate(18deg);
+  width: 42px;
+}
+
+.doodle-rocket::before {
+  background: var(--blue);
+  border: 3px solid var(--dark);
+  border-radius: 50%;
+  content: '';
+  height: 18px;
+  left: 9px;
+  position: absolute;
+  top: 18px;
+  width: 18px;
+}
+
+.doodle-blocks {
+  color: var(--pink);
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.35rem;
+  font-weight: 800;
+  right: 5%;
+  top: 290px;
+  transform: rotate(8deg);
+}
+
+.doodle-train {
+  background: var(--green);
+  border: 3px solid var(--dark);
+  border-radius: 8px;
+  height: 38px;
+  right: 4%;
+  top: 430px;
+  width: 92px;
+}
+
+.doodle-train::before,
+.doodle-train::after {
+  background: var(--dark);
+  border-radius: 50%;
+  bottom: -12px;
+  content: '';
+  height: 18px;
+  position: absolute;
+  width: 18px;
+}
+
+.doodle-train::before {
+  left: 14px;
+}
+
+.doodle-train::after {
+  right: 14px;
+}
+
 .about-cards-grid {
   display: grid;
   gap: 16px;
@@ -701,6 +878,49 @@ a {
   line-height: 1.75;
   margin: 0 0 24px;
   max-width: 500px;
+}
+
+.about-benefits {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 26px 0 30px;
+  padding: 0;
+}
+
+.about-benefits li {
+  align-items: center;
+  color: var(--dark);
+  display: flex;
+  font-weight: 700;
+  gap: 12px;
+}
+
+.about-benefits li::before {
+  align-items: center;
+  background: var(--orange);
+  border-radius: 50%;
+  color: white;
+  content: 'OK';
+  display: inline-flex;
+  flex: 0 0 20px;
+  font-size: 0.48rem;
+  font-weight: 900;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
+}
+
+.btn-green {
+  background: #3f7f1d;
+  box-shadow: 4px 4px 0 var(--orange);
+  color: white;
+  min-width: 180px;
+}
+
+.btn-green:hover {
+  box-shadow: 7px 7px 0 var(--orange);
+  transform: translate(-3px, -3px);
 }
 
 .about-service-tags {
@@ -1035,6 +1255,40 @@ a {
     order: -1;
   }
 
+  .about {
+    min-height: auto;
+  }
+
+  .story-gallery {
+    margin: 0 auto;
+    max-width: 680px;
+    min-height: 560px;
+    width: 100%;
+  }
+
+  .photo-frame-primary {
+    height: 240px;
+    left: 4%;
+    top: 24px;
+    width: 58%;
+  }
+
+  .photo-frame-secondary {
+    height: 360px;
+    left: 34%;
+    top: 180px;
+    width: 58%;
+  }
+
+  .about-content {
+    margin: 0 auto;
+    max-width: 720px;
+  }
+
+  .doodle {
+    opacity: 0.55;
+  }
+
   .stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1071,5 +1325,27 @@ a {
 
   .hero-title {
     font-size: 3rem;
+  }
+
+  .story-gallery {
+    min-height: 430px;
+  }
+
+  .photo-frame-primary {
+    height: 180px;
+    left: 0;
+    top: 10px;
+    width: 76%;
+  }
+
+  .photo-frame-secondary {
+    height: 260px;
+    left: 20%;
+    top: 150px;
+    width: 78%;
+  }
+
+  .doodle {
+    display: none;
   }
 }
