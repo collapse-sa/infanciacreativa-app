@@ -3,37 +3,71 @@ import './App.css';
 import heroBg from './assets/img/home/bg.jpg';
 import logo from './assets/img/home/logo.png';
 import playingClassroom from './assets/img/home/playing-classroom-home.jpg';
+import whatsapp from "./assets/img/home/wpp.png";
 
 const services = [
   {
-    icon: 'ET',
-    title: 'Estimulacion Temprana',
-    desc: 'Actividades disenadas para potenciar el desarrollo cognitivo, motor y emocional desde los primeros meses de vida.',
+    title: "Estancia Infantil",
+    description:
+      "Servicio de estancia para niños a partir de 2 meses hasta 5 años. Horario de 7:00 am a 7:00 pm.",
+    image:
+      "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=80",
   },
   {
-    icon: 'JL',
-    title: 'Juego Libre y Dirigido',
-    desc: 'Espacios seguros donde los ninos exploran, crean y aprenden a traves del juego en todas sus formas.',
+    title: "Estimulación temprana",
+    description:
+      "Por medio de juegos, actividades y ejercicios buscamos desarrollar y potenciar las habilidades del niño.",
+    image:
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80",
   },
   {
-    icon: 'PC',
-    title: 'Preescolar Creativo',
-    desc: 'Preparacion academica divertida basada en metodologias activas que despiertan el amor por aprender.',
+    title: "Estimulación del lenguaje",
+    description:
+      "A través del juego, cuentos y canciones trabajamos diferentes formas de expresión y comunicación.",
+    image:
+      "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=80",
   },
   {
-    icon: 'AR',
-    title: 'Artes y Expresion',
-    desc: 'Musica, danza, teatro y artes plasticas integradas como herramientas de aprendizaje y expresion emocional.',
+    title: "Control de esfínteres",
+    description:
+      "Apoyamos al niño en su proceso de aprendizaje de ir al baño, respetando sus tiempos.",
+    image:
+      "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=80",
   },
   {
-    icon: 'AL',
-    title: 'Educacion al Aire Libre',
-    desc: 'Actividades en entornos naturales que fomentan la conexion con el mundo y el desarrollo sensorial.',
+    title: "Desarrollo psicomotor",
+    description:
+      "Mediante actividades de movimiento buscamos desarrollar habilidades motrices, expresivas y creativas.",
+    image:
+      "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=900&q=80",
   },
   {
-    icon: 'AE',
-    title: 'Apoyo Emocional',
-    desc: 'Acompanamiento socioafectivo para que cada nino desarrolle autoestima, empatia e inteligencia emocional.',
+    title: "Desarrollo socioemocional",
+    description:
+      "Brindamos un ambiente seguro y agradable donde predominan el diálogo, la escucha y la confianza.",
+    image:
+      "https://images.unsplash.com/photo-1564429238817-393bd4286b2d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Hábitos y rutinas",
+    description:
+      "Establecemos horarios y espacios específicos para darle al niño organización, seguridad y autonomía.",
+    image:
+      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Actividades artísticas",
+    description:
+      "Las artes ayudan a desarrollar sensibilidad, disciplina, creatividad y trabajo en equipo.",
+    image:
+      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    title: "Servicio de comida",
+    description:
+      "Servicio opcional. La dieta de los niños es elaborada por una nutrióloga.",
+    image:
+      "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -205,10 +239,15 @@ function App() {
 
         <div className="services-grid">
           {services.map((service) => (
-            <article className="service-card" key={service.title}>
-              <span className="service-icon">{service.icon}</span>
-              <h3>{service.title}</h3>
-              <p>{service.desc}</p>
+            <article className="service-card">
+              <img src={service.image} alt={service.title} />
+
+              <div className="service-overlay">
+                <div className="service-bottom">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+              </div>
             </article>
           ))}
         </div>
@@ -216,7 +255,9 @@ function App() {
 
       <section className="cta-banner">
         <div>
-          <span className="cta-emoji">IC</span>
+          <span className="cta-logo">
+            <img src={logo} alt="Infancia Creativa" />
+          </span>
           <h2>Listo para inscribir a tu pequeno?</h2>
           <p>Agenda una visita gratuita y conoce nuestras instalaciones. Cupos limitados cada ciclo.</p>
         </div>
@@ -292,8 +333,19 @@ function App() {
         <small>2026 Estancia Infancia Creativa. Todos los derechos reservados.</small>
       </footer>
 
-      <a className="whatsapp-fab" href="https://wa.me/528001234567" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-        WA
+      <a
+        className="whatsapp-fab"
+        href="https://wa.me/521XXXXXXXXXX"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" className="whatsapp-icon">
+          <path
+            fill="currentColor"
+            d="M16.04 3C9.42 3 4.04 8.38 4.04 15c0 2.12.56 4.19 1.62 6.01L4 29l8.18-1.61A12 12 0 1 0 16.04 3zm0 22.03c-1.85 0-3.65-.5-5.22-1.45l-.37-.22-4.85.95.98-4.72-.25-.39A9.95 9.95 0 1 1 16.04 25.03zm5.72-7.45c-.31-.16-1.84-.91-2.13-1.01-.29-.11-.5-.16-.71.16-.21.31-.82 1.01-1.01 1.22-.18.21-.37.24-.68.08-.31-.16-1.32-.49-2.51-1.55-.93-.83-1.55-1.85-1.73-2.16-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.11-.21.05-.39-.03-.55-.08-.16-.71-1.71-.97-2.34-.26-.61-.52-.53-.71-.54h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.23 3.4 5.4 4.77.75.32 1.34.52 1.8.66.76.24 1.45.21 2 .13.61-.09 1.84-.75 2.1-1.48.26-.73.26-1.35.18-1.48-.08-.13-.29-.21-.6-.37z"
+          />
+        </svg>
       </a>
     </>
   );
