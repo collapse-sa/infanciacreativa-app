@@ -71,7 +71,7 @@ const services = [
 ];
 
 const stats = [
-  { number: '10+', label: 'Anos de experiencia', color: '#FFD93D' },
+  { number: '10+', label: 'Años de experiencia', color: '#FFD93D' },
   { number: '200+', label: 'Familias felices', color: '#FF6B9D' },
   { number: '15', label: 'Maestros certificados', color: '#4ECDC4' },
   { number: '100%', label: 'Ambiente seguro', color: '#FF6B35' },
@@ -85,11 +85,34 @@ const aboutBenefits = [
 ];
 
 const contactItems = [
-  { icon: 'UB', label: 'Direccion', value: 'Monterrey, Nuevo Leon, Mexico', bg: '#FFF3C4' },
-  { icon: 'TE', label: 'Telefono', value: '+52 (81) 1234-5678', bg: '#FFE0EC' },
-  { icon: 'EM', label: 'Email', value: 'hola@estanciainfanciacreativa.com', bg: '#D4F5F1' },
-  { icon: 'HR', label: 'Horario', value: 'Lunes a Viernes - 7:00am a 6:00pm', bg: '#EDE9FE' },
+  { icon: 'location', label: 'Direccion', value: 'Monterrey, Nuevo Leon, Mexico', bg: '#FFF3C4' },
+  { icon: 'phone', label: 'Telefono', value: '+52 (81) 1234-5678', bg: '#FFE0EC' },
+  { icon: 'mail', label: 'Email', value: 'hola@estanciainfanciacreativa.com', bg: '#D4F5F1' },
+  { icon: 'clock', label: 'Horario', value: 'Lunes a Viernes - 7:00am a 6:00pm', bg: '#EDE9FE' },
 ];
+
+const icons = {
+  location: (
+    <path d="M12 21s7-4.8 7-11a7 7 0 1 0-14 0c0 6.2 7 11 7 11Zm0-8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+  ),
+  phone: (
+    <path d="M21 16.5v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 1.1 3.7 2 2 0 0 1 3.1 1.5h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L7.1 9.4a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />
+  ),
+  mail: (
+    <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm18 3-10 6L2 8" />
+  ),
+  clock: (
+    <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm0-15v5l3 2" />
+  ),
+};
+
+function ContactIcon({ name }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      {icons[name]}
+    </svg>
+  );
+}
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -168,14 +191,6 @@ function App() {
         </div>
       </section>
 
-      <div className="cloud-separator" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
-
       <section id="nosotros" className="about">
         <div className="about-doodles" aria-hidden="true">
           <span className="doodle doodle-note">Aa</span>
@@ -238,7 +253,7 @@ function App() {
 
         <div className="services-grid">
           {services.map((service) => (
-            <article className="service-card">
+            <article className="service-card" key={service.title}>
               <img src={service.image} alt={service.title} />
 
               <div className="service-overlay">
@@ -278,7 +293,9 @@ function App() {
           <div className="contact-info-items">
             {contactItems.map((item) => (
               <article className="contact-item" key={item.label}>
-                <span className="contact-item-icon" style={{ background: item.bg }}>{item.icon}</span>
+                <span className="contact-item-icon" style={{ background: item.bg }}>
+                  <ContactIcon name={item.icon} />
+                </span>
                 <span>
                   <small>{item.label}</small>
                   <strong>{item.value}</strong>
@@ -306,7 +323,7 @@ function App() {
           </label>
           <label>
             Edad de tu hijo/a
-            <input placeholder="ej. 2 anos 3 meses" />
+            <input placeholder="ej. 2 años 3 meses" />
           </label>
           <label>
             Mensaje
