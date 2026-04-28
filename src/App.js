@@ -70,6 +70,37 @@ const services = [
   },
 ];
 
+const galleryItems = [
+  {
+    title: 'Actividades creativas',
+    image: playingClassroom,
+  },
+  {
+    title: 'Juegos educativos',
+    image:
+      'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Espacios seguros',
+    image:
+      'https://images.unsplash.com/photo-1564429238817-393bd4286b2d?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Aprendizaje diario',
+    image:
+      'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Arte y colores',
+    image:
+      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    title: 'Convivencia',
+    image: heroBg,
+  },
+];
+
 const stats = [
   { number: '10+', label: 'Años de experiencia', color: '#FFD93D' },
   { number: '200+', label: 'Familias felices', color: '#FF6B9D' },
@@ -89,6 +120,21 @@ const contactItems = [
   { icon: 'phone', label: 'Telefono', value: '+52 (81) 1234-5678', bg: '#FFE0EC' },
   { icon: 'mail', label: 'Email', value: 'hola@estanciainfanciacreativa.com', bg: '#D4F5F1' },
   { icon: 'clock', label: 'Horario', value: 'Lunes a Viernes - 7:00am a 6:00pm', bg: '#EDE9FE' },
+];
+
+const testimonials = [
+  {
+    name: 'Mama de Valentina',
+    text: 'Mi hija llega feliz todos los dias. Nos encanta la atencion y el carino con el que la reciben.',
+  },
+  {
+    name: 'Papa de Mateo',
+    text: 'Un espacio seguro, creativo y muy bonito. Hemos visto mucho avance en su aprendizaje.',
+  },
+  {
+    name: 'Familia Rodriguez',
+    text: 'Excelente trato, comunicacion y actividades. Nos sentimos muy tranquilos dejando a nuestro pequeno aqui.',
+  },
 ];
 
 const icons = {
@@ -143,6 +189,9 @@ function App() {
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#nosotros">Quienes Somos?</a></li>
           <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#ubicacion">Ubicacion</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
           <li><a className="nav-cta" href="#contacto">Contacto</a></li>
         </ul>
       </nav>
@@ -262,6 +311,106 @@ function App() {
                   <p>{service.description}</p>
                 </div>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* GALERIA */}
+      <section id="galeria" className="gallery">
+        <div className="gallery-header">
+          <div className="section-label">Galeria</div>
+          <h2 className="section-title">Momentos llenos de aprendizaje y diversion</h2>
+          <p className="section-desc">
+            Conoce algunos espacios y actividades que forman parte de nuestra estancia.
+          </p>
+        </div>
+
+        <div className="gallery-grid">
+          {galleryItems.map((item) => (
+            <article className="gallery-card" key={item.title}>
+              <img src={item.image} alt={item.title} />
+              <span>{item.title}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* UBICACION */}
+      <section id="ubicacion" className="location-section">
+        <div className="location-grid">
+          <div>
+            <div className="section-label">Ubicacion</div>
+            <h2 className="section-title">Encuentranos facilmente</h2>
+            <p className="section-desc">
+              Estamos ubicados en Calle Alejandro de Rodas 5661, Colonial Cumbres, 64349 Monterrey, N.L.
+            </p>
+
+            <div className="map-card">
+              <iframe
+                title="Ubicación Estancia Infantil"
+                src="https://www.google.com/maps?q=25.6866,-100.3161&z=15&output=embed"
+                width="100%"
+                height="420"
+                loading="lazy"
+                style={{ border: 0 }}
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+          <aside className="location-info-card">
+            <h3>Datos para tu visita</h3>
+            <div className="location-info-list">
+              <article className="contact-item">
+                <span className="contact-item-icon" style={{ background: '#FFF3C4' }}>
+                  <ContactIcon name="location" />
+                </span>
+                <span>
+                  <small>Direccion</small>
+                  <strong>Monterrey, Nuevo Leon, Mexico</strong>
+                </span>
+              </article>
+              <article className="contact-item">
+                <span className="contact-item-icon" style={{ background: '#EDE9FE' }}>
+                  <ContactIcon name="clock" />
+                </span>
+                <span>
+                  <small>Horario</small>
+                  <strong>Lunes a Viernes - 7:00am a 6:00pm</strong>
+                </span>
+              </article>
+            </div>
+            <a
+              className="btn btn-primary"
+              href="https://www.google.com/maps/search/?api=1&query=Monterrey%2C%20Nuevo%20Leon%2C%20Mexico"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Abrir en Google Maps
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      {/* TESTIMONIOS */}
+      <section id="testimonios" className="testimonials">
+        <div className="testimonials-header">
+          <div className="section-label">Testimonios</div>
+          <h2 className="section-title">Lo que dicen las familias</h2>
+          <p className="section-desc">
+            La confianza de cada familia nos motiva a seguir creando experiencias felices y seguras.
+          </p>
+        </div>
+
+        <div className="testimonials-grid">
+          {testimonials.map((testimonial) => (
+            <article className="testimonial-card" key={testimonial.name}>
+              <div className="testimonial-quote" aria-hidden="true">"</div>
+              <div className="testimonial-stars" aria-label="Cinco estrellas">★★★★★</div>
+              <p>{testimonial.text}</p>
+              <strong>{testimonial.name}</strong>
             </article>
           ))}
         </div>

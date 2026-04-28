@@ -984,6 +984,205 @@ a {
   width: 56px;
 }
 
+.gallery {
+  background: var(--white);
+  padding: 100px 5vw;
+}
+
+.gallery-header,
+.testimonials-header {
+  margin: 0 auto 52px;
+  max-width: 760px;
+  text-align: center;
+}
+
+.gallery-header .section-label,
+.testimonials-header .section-label {
+  justify-content: center;
+}
+
+.gallery-header .section-label::before,
+.testimonials-header .section-label::before {
+  display: none;
+}
+
+.gallery-header .section-desc,
+.testimonials-header .section-desc {
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-card {
+  background: var(--gray);
+  border: 3px solid var(--dark);
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 var(--dark);
+  min-height: 300px;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.gallery-card::after {
+  background: linear-gradient(to top, rgba(30, 27, 46, 0.74), rgba(30, 27, 46, 0.12), transparent);
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.gallery-card img {
+  display: block;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  transition: transform 0.4s ease;
+  width: 100%;
+}
+
+.gallery-card span {
+  bottom: 22px;
+  color: white;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.35rem;
+  font-weight: 800;
+  left: 22px;
+  line-height: 1.1;
+  position: absolute;
+  right: 22px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.gallery-card:hover {
+  box-shadow: 10px 10px 0 var(--dark);
+  transform: translate(-4px, -4px);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.06);
+}
+
+.location-section {
+  background: var(--gray);
+  padding: 100px 5vw;
+}
+
+.location-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 34px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+}
+
+.map-card {
+  background: white;
+  border: 3px solid var(--dark);
+  border-radius: 28px;
+  box-shadow: 8px 8px 0 var(--blue);
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.map-card iframe {
+  display: block;
+  height: 420px;
+  width: 100%;
+}
+
+.location-info-card {
+  align-self: end;
+  background: white;
+  border: 2.5px solid var(--dark);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 0 var(--dark);
+  padding: 30px;
+}
+
+.location-info-card h3 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.5rem;
+  margin: 0 0 20px;
+}
+
+.location-info-list {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.location-info-card .contact-item {
+  box-shadow: 3px 3px 0 var(--dark);
+  padding: 16px;
+}
+
+.testimonials {
+  background: var(--white);
+  padding: 100px 5vw;
+}
+
+.testimonials-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.testimonial-card {
+  border: 2.5px solid var(--dark);
+  border-radius: var(--radius);
+  box-shadow: 5px 5px 0 var(--dark);
+  min-height: 260px;
+  padding: 32px;
+  position: relative;
+}
+
+.testimonial-card:nth-child(1) {
+  background: #fff3c4;
+}
+
+.testimonial-card:nth-child(2) {
+  background: #ffe0ec;
+}
+
+.testimonial-card:nth-child(3) {
+  background: #d4f5f1;
+}
+
+.testimonial-quote {
+  color: rgba(30, 27, 46, 0.16);
+  font-family: 'Baloo 2', cursive;
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 0.6;
+}
+
+.testimonial-stars {
+  color: var(--yellow);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin: 8px 0 16px;
+  text-shadow: 1px 1px 0 var(--dark);
+}
+
+.testimonial-card p {
+  color: #4d4a5f;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.testimonial-card strong {
+  color: var(--dark);
+  display: block;
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.12rem;
+}
+
 .cta-banner {
   align-items: center;
   background: var(--dark);
@@ -1253,6 +1452,19 @@ a {
     grid-template-columns: 1fr 1fr;
   }
 
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .location-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-info-card {
+    align-self: stretch;
+  }
+
   .cta-banner {
     flex-direction: column;
     margin: 80px 4vw;
@@ -1352,10 +1564,35 @@ a {
 
   .stats,
   .services-grid,
+  .gallery-grid,
   .about-cards-grid,
   .about-service-tags,
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .gallery,
+  .location-section,
+  .testimonials {
+    padding: 70px 16px;
+  }
+
+  .gallery-card {
+    min-height: 245px;
+  }
+
+  .map-card,
+  .map-card iframe {
+    min-height: 320px;
+  }
+
+  .map-card iframe {
+    height: 320px;
+  }
+
+  .location-info-card,
+  .testimonial-card {
+    padding: 24px;
   }
 
   .story-gallery {
