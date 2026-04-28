@@ -70,35 +70,23 @@ const services = [
   },
 ];
 
-const galleryItems = [
-  {
-    title: 'Actividades creativas',
-    image: playingClassroom,
-  },
-  {
-    title: 'Juegos educativos',
-    image:
-      'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Espacios seguros',
-    image:
-      'https://images.unsplash.com/photo-1564429238817-393bd4286b2d?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Aprendizaje diario',
-    image:
-      'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Arte y colores',
-    image:
-      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    title: 'Convivencia',
-    image: heroBg,
-  },
+const galleryImages = [
+  { src: '/imagenes/galeria/galeria1.jpg', alt: 'Nino jugando en tapete', size: 'tall' },
+  { src: '/imagenes/galeria/galeria2.jpg', alt: 'Actividad con juguete', size: 'medium' },
+  { src: '/imagenes/galeria/galeria3.jpg', alt: 'Nino en actividad motriz', size: 'tall' },
+  { src: '/imagenes/galeria/galeria4.jpg', alt: 'Actividad acompanada', size: 'small' },
+  { src: '/imagenes/galeria/galeria5.jpg', alt: 'Bebe gateando', size: 'medium' },
+  { src: '/imagenes/galeria/galeria6.jpg', alt: 'Juego sensorial', size: 'tall' },
+  { src: '/imagenes/galeria/galeria7.jpg', alt: 'Nino sonriendo', size: 'medium' },
+  { src: '/imagenes/galeria/galeria8.jpg', alt: 'Juego de equilibrio', size: 'tall' },
+  { src: '/imagenes/galeria/galeria9.jpg', alt: 'Actividad educativa', size: 'small' },
+  { src: '/imagenes/galeria/galeria10.jpg', alt: 'Nino en alberca de pelotas', size: 'medium' },
+  { src: '/imagenes/galeria/galeria11.jpg', alt: 'Ninos jugando', size: 'small' },
+  { src: '/imagenes/galeria/galeria12.jpg', alt: 'Nino con bloques', size: 'medium' },
+  { src: '/imagenes/galeria/galeria13.jpg', alt: 'Manualidad infantil', size: 'small' },
+  { src: '/imagenes/galeria/galeria14.jpg', alt: 'Juguetes infantiles', size: 'medium' },
+  { src: '/imagenes/galeria/galeria15.jpg', alt: 'Actividad en grupo', size: 'small' },
+  { src: '/imagenes/galeria/galeria16.jpg', alt: 'Nino en rampa', size: 'tall' },
 ];
 
 const stats = [
@@ -317,21 +305,21 @@ function App() {
       </section>
 
       {/* GALERIA */}
-      <section id="galeria" className="gallery">
-        <div className="gallery-header">
-          <div className="section-label">Galeria</div>
-          <h2 className="section-title">Momentos llenos de aprendizaje y diversion</h2>
-          <p className="section-desc">
-            Conoce algunos espacios y actividades que forman parte de nuestra estancia.
-          </p>
+      <section id="galeria" className="gallery-masonry-section">
+        <div className="section-label gallery-label">Galeria</div>
+        <div className="gallery-title-wrap">
+          <h2>Galeria</h2>
         </div>
 
-        <div className="gallery-grid">
-          {galleryItems.map((item) => (
-            <article className="gallery-card" key={item.title}>
-              <img src={item.image} alt={item.title} />
-              <span>{item.title}</span>
-            </article>
+        <div className="gallery-masonry">
+          {galleryImages.map((image, index) => (
+            <img
+              key={`${image.src}-${index}`}
+              className={`gallery-photo gallery-img-${image.size}`}
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+            />
           ))}
         </div>
       </section>
@@ -384,9 +372,9 @@ function App() {
             </div>
             <a
               className="btn btn-primary"
-              href="https://www.google.com/maps/search/?api=1&query=Monterrey%2C%20Nuevo%20Leon%2C%20Mexico"
+              href="https://maps.app.goo.gl/GWCJTwzF6CjrA95B7"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Abrir en Google Maps
             </a>
