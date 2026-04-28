@@ -125,6 +125,15 @@ const testimonials = [
   },
 ];
 
+const navLinks = [
+  { label: 'Inicio', href: '#inicio' },
+  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Galeria', href: '#galeria' },
+  { label: 'Ubicacion', href: '#ubicacion' },
+  { label: 'Testimonios', href: '#testimonios' },
+];
+
 const icons = {
   location: (
     <path d="M12 21s7-4.8 7-11a7 7 0 1 0-14 0c0 6.2 7 11 7 11Zm0-8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
@@ -150,6 +159,7 @@ function ContactIcon({ name }) {
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -162,7 +172,7 @@ function App() {
 
   return (
     <>
-      <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
+      <nav className={`nav ${scrolled ? 'scrolled' : ''} ${isMenuOpen ? 'nav-open' : ''}`}>
         <a className="nav-logo" href="#inicio">
           <span className="nav-logo-dot">
             <img src={logo} alt="" />
@@ -174,14 +184,38 @@ function App() {
         </a>
 
         <ul className="nav-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#nosotros">Quienes Somos?</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#galeria">Galeria</a></li>
-          <li><a href="#ubicacion">Ubicacion</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
           <li><a className="nav-cta" href="#contacto">Contacto</a></li>
         </ul>
+
+        <button
+          className="mobile-menu-btn"
+          type="button"
+          aria-label={isMenuOpen ? 'Cerrar menu' : 'Abrir menu'}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          <span>{isMenuOpen ? 'X' : '\u2630'}</span>
+        </button>
+
+        <div className="mobile-menu">
+          {navLinks.map((link) => (
+            <a href={link.href} key={link.href} onClick={() => setIsMenuOpen(false)}>
+              {link.label}
+            </a>
+          ))}
+          <a
+            className="mobile-menu-cta"
+            href="#contacto"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contacto
+          </a>
+        </div>
       </nav>
 
       <section id="inicio" className="hero" style={{ '--hero-bg': `url(${heroBg})` }}>
